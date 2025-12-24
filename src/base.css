@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Motter Tektura";
+  src: url("/fonts/motter-tektura.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-motter-tektura {
+  font-family: "Motter Tektura", sans-serif;
+}
+
