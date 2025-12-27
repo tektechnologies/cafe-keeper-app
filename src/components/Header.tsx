@@ -16,12 +16,9 @@ export default function Header() {
         <h1 className="ml-4 text-xl font-semibold font-motter-tektura">
           <Link to="/">Cafe Keeper</Link>
         </h1>
-      </header>
+     
 
-      
-        <div className="flex items-center justify-between p-4 border-b border-gray-700">
-          <h2 className="text-xl font-bold">Navigation</h2>
-          
+    
         </div>
 
         <nav className="flex-1 p-4 overflow-y-auto">
@@ -106,7 +103,7 @@ export default function Header() {
 
           {/* Demo Links End */}
         </nav>
- 
+        </header>
     </>
   )
 }
