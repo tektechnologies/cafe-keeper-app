@@ -1,109 +1,38 @@
 import { Link } from '@tanstack/react-router'
-import {
-  Home,
-  Network,
-  SquareFunction,
-  StickyNote
-} from 'lucide-react'
 
 export default function Header() {
- 
-
   return (
     <>
       <header className="p-4 flex items-center bg-gray-800 text-white shadow-lg">
-       
         <h1 className="ml-4 text-xl font-semibold font-motter-tektura">
           <Link to="/">Cafe Keeper</Link>
         </h1>
-     
 
-    
-        </div>
-
-        <nav className="flex-1 p-4 overflow-y-auto">
-          <Link
-            to="/"
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
-            }}
-          >
-            <Home size={20} />
-            <span className="font-medium">Home</span>
+        <nav>
+          <Link to="/">
+            <span className="font-medium">Solutions</span>
           </Link>
 
-          {/* Demo Links Start */}
-
-          <Link
-            to="/demo/start/server-funcs"
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
-            }}
-          >
-            <SquareFunction size={20} />
-            <span className="font-medium">Start - Server Functions</span>
+          <Link to="/demo/start/server-funcs">
+            <span className="font-medium">Pricing</span>
           </Link>
 
-          <Link
-            to="/demo/start/api-request"
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
-            }}
-          >
-            <Network size={20} />
-            <span className="font-medium">Start - API Request</span>
+          <Link to="/demo/start/api-request" className="">
+            <span className="font-medium">About Us</span>
           </Link>
 
           <div className="flex flex-row justify-between">
             <Link
               to="/demo/start/ssr"
               className="flex-1 flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-              activeProps={{
-                className:
-                  'flex-1 flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
-              }}
             >
-              <StickyNote size={20} />
-              <span className="font-medium">Start - SSR Demos</span>
+              <span className="font-medium">Contact Us</span>
             </Link>
-           
-
-              <Link
-                to="/demo/start/ssr/full-ssr"
-                
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-                activeProps={{
-                  className:
-                    'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
-                }}
-              >
-                <StickyNote size={20} />
-                <span className="font-medium">Full SSR</span>
-              </Link>
-
-              <Link
-                to="/demo/start/ssr/data-only"
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-                activeProps={{
-                  className:
-                    'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
-                }}
-              >
-                <StickyNote size={20} />
-                <span className="font-medium">Data Only</span>
-              </Link>
-            </div>
-        
+          </div>
 
           {/* Demo Links End */}
         </nav>
-        </header>
+      </header>
     </>
   )
 }
