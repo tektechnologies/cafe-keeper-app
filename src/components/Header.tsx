@@ -9,7 +9,7 @@ export default function Header() {
         </h1>
 
         <nav>
-          <Link to="/">
+          <Link to="/solutions">
             <span className="font-medium">Solutions</span>
           </Link>
 
