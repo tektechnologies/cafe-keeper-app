@@ -2,37 +2,27 @@ import { Link } from '@tanstack/react-router'
 
 export default function Header() {
   return (
-    <>
-      <header className="p-4 flex items-center bg-gray-800 text-white shadow-lg">
-        <h1 className="ml-4 text-xl font-semibold font-motter-tektura">
-          <Link to="/">Cafe Keeper</Link>
-        </h1>
+    <header className="px-6 py-4 flex items-center justify-between bg-white">
+      <h1 className="text-3xl font-normal text-[#CD602F] font-motter-tektura tracking-tight">
+        <Link to="/" className="hover:opacity-90 transition-opacity">
+          Cafe Keeper
+        </Link>
+      </h1>
 
-        <nav>
-          <Link to="/solutions">
-            <span className="font-medium">Solutions</span>
-          </Link>
-
-          <Link to="/demo/start/server-funcs">
-            <span className="font-medium">Pricing</span>
-          </Link>
-
-          <Link to="/demo/start/api-request" className="">
-            <span className="font-medium">About Us</span>
-          </Link>
-
-          <div className="flex flex-row justify-between">
-            <Link
-              to="/demo/start/ssr"
-              className="flex-1 flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            >
-              <span className="font-medium">Contact Us</span>
-            </Link>
-          </div>
-
-          {/* Demo Links End */}
-        </nav>
-      </header>
-    </>
+      <nav className="flex items-center gap-8 text-[#4A5568] text-base font-normal">
+        <Link to="/solutions" className="hover:text-[#2D3748] transition-colors">
+          Solutions
+        </Link>
+        <Link to="/" className="hover:text-[#2D3748] transition-colors">
+          Pricing
+        </Link>
+        <Link to="/" className="hover:text-[#2D3748] transition-colors">
+          About
+        </Link>
+        <Link to="/" className="hover:text-[#2D3748] transition-colors">
+          Contact
+        </Link>
+      </nav>
+    </header>
   )
 }
