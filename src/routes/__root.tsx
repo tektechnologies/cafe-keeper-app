@@ -1,7 +1,9 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 // import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 // import { TanStackDevtools } from '@tanstack/react-devtools'
-import Header from '../components/Header'
+import Header from '../components/Navs/Header'
+import Banner from '@/components/Banner'
+import Features from '@/components/Features'
 import appCss from '../styles.css?url'
 
 
@@ -40,6 +42,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Header />
+        <Banner />
+        <Features />
         {children}
         {/* <TanStackDevtools
           config={{
