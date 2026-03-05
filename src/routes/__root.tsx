@@ -1,10 +1,10 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 // import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 // import { TanStackDevtools } from '@tanstack/react-devtools'
+import appCss from '../styles.css?url'
 import Header from '../components/Navs/Header'
 import Banner from '@/components/Banner'
 import Features from '@/components/Features'
-import appCss from '../styles.css?url'
 
 
 console.log('Root Route')
