@@ -8,37 +8,37 @@ import {
 
 const features = [
   {
-    icon: <Coffee className="w-12 h-12 text-cyan-400" />,
+    icon: <Coffee size={45} className="text-cyan-400" />,
     title: 'Recipes & Menu',
     description:
       'Simplify menu and recipe management—store recipes, track ingredients, and share updates with your team to keep every cup and dish consistent and high-quality.',
   },
   {
-    icon: <ToolCase className="w-12 h-12 text-cyan-400" />,
+    icon: <ToolCase size={45} className="text-cyan-400" />,
     title: 'Equipment & Maintenance',
     description:
       'Manage and maintain all your equipment with ease—track purchases, maintenance, images, and ownership history, all in one organized platform.',
   },
   {
-    icon: <MessagesSquare className="w-12 h-12 text-cyan-400" />,
+    icon: <MessagesSquare size={45} className="text-cyan-400" />,
     title: 'Team Messaging',
     description:
       'A simple team chat for scheduling and updates—send messages, request shift coverage, and get notifications in real time.',
   },
   {
-    icon: <ListTodo className="w-12 h-12 text-cyan-400" />,
+    icon: <ListTodo size={45} className="text-cyan-400" />,
     title: 'Shift & Staff Management',
     description:
       'Manage staff details and track shift activities, notes, and instructions—all in one easy-to-use system.',
   },
   {
-    icon: <Handshake className="w-12 h-12 text-cyan-400" />,
+    icon: <Handshake size={45} className="text-cyan-400" />,
     title: 'Vendor & Supply Management',
     description:
       'Track vendors, orders, and supplies all in one place to keep your operations running smoothly.',
   },
   {
-    icon: <Coffee className="w-12 h-12 text-cyan-400" />,
+    icon: <Coffee size={45} className="text-cyan-400" />,
     title: 'Barista and Roaster Training',
     description:
       'Train your baristas and roasters with interactive lessons and quizzes, reinforcing key skills and company standards while tracking staff progress.',
