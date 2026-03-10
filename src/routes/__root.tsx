@@ -4,6 +4,7 @@ import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import appCss from '../theme/index.css?url'
 import Header from '../components/Navs/Header'
 import Banner from '@/components/Banner'
+import Footer from '@/components/Footer'
 // import Features from '@/components/Features'
 
 
@@ -43,6 +44,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <Header />
         <Banner />
+        <Footer />
         {/* <Features /> */}
         {children}
         {/* <TanStackDevtools
