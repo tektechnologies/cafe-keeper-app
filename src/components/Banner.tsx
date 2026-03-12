@@ -1,5 +1,6 @@
 import bannerImage from '../assets/images/banner-image-1.png'
 import Features from './Features'
+import MarqueeMessage from './MarqueeMessage'
 
 export default function Banner() {
   return (
@@ -25,7 +26,7 @@ export default function Banner() {
 
 
       <Features />
-       
+      <MarqueeMessage /> 
 
       <section className="stats">
         <div className="stats-container">
