@@ -16,19 +16,19 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/pricing" className="[&.active]:font-bold">
+            {/* <Link to="/pricing" className="[&.active]:font-bold">
               Pricing
-            </Link>
+            </Link> */}
           </li>
           <li>
-            <Link to="/about" className="[&.active]:font-bold">
+            {/* <Link to="/about" className="[&.active]:font-bold">
               About
-            </Link>
+            </Link> */}
           </li>
           <li>
-            <Link to="/contact" className="[&.active]:font-bold">
+            {/* <Link to="/contact" className="[&.active]:font-bold">
               Contact
-            </Link>
+            </Link> */}
           </li>
         </ul>
       </nav>

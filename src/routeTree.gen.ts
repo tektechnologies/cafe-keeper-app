@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as MarqueeMessageRouteImport } from './routes/marqueeMessage'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarqueeMessageRoute = MarqueeMessageRouteImport.update({
+  id: '/marqueeMessage',
+  path: '/marqueeMessage',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/marqueeMessage': typeof MarqueeMessageRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/marqueeMessage': typeof MarqueeMessageRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/marqueeMessage': typeof MarqueeMessageRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/solutions'
+  fullPaths: '/' | '/marqueeMessage' | '/solutions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/solutions'
-  id: '__root__' | '/' | '/solutions'
+  to: '/' | '/marqueeMessage' | '/solutions'
+  id: '__root__' | '/' | '/marqueeMessage' | '/solutions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MarqueeMessageRoute: typeof MarqueeMessageRoute
   SolutionsRoute: typeof SolutionsRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marqueeMessage': {
+      id: '/marqueeMessage'
+      path: '/marqueeMessage'
+      fullPath: '/marqueeMessage'
+      preLoaderRoute: typeof MarqueeMessageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MarqueeMessageRoute: MarqueeMessageRoute,
   SolutionsRoute: SolutionsRoute,
 }
 export const routeTree = rootRouteImport
