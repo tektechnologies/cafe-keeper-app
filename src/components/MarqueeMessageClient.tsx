@@ -6,12 +6,12 @@
 import Marquee from 'react-fast-marquee'
 
 const items = [
-  'Access to AI work flows',
+  'Access AI work flows',
   'Secure Data and Process Tracking',
-  'Manage your Information Systems',
+  'Manage Information Systems',
 ]
 
-const itemStyle = { marginRight: '40px', fontSize: '25px' }
+const itemStyle = { marginRight: '80px', fontSize: '45px' }
 
 export default function MarqueeMessageClient() {
   return (
