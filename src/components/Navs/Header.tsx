@@ -26,9 +26,9 @@ export default function Header() {
             </Link> */}
           </li>
           <li>
-            {/* <Link to="/contact" className="[&.active]:font-bold">
+            <Link to="/contactUs" className="[&.active]:font-bold">
               Contact
-            </Link> */}
+            </Link>
           </li>
         </ul>
       </nav>

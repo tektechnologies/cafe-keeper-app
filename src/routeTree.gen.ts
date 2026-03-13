@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as MarqueeMessageRouteImport } from './routes/marqueeMessage'
+import { Route as ContactUsRouteImport } from './routes/contactUs'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SolutionsRoute = SolutionsRouteImport.update({
@@ -23,6 +24,11 @@ const MarqueeMessageRoute = MarqueeMessageRouteImport.update({
   path: '/marqueeMessage',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contactUs',
+  path: '/contactUs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,34 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contactUs': typeof ContactUsRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contactUs': typeof ContactUsRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contactUs': typeof ContactUsRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/marqueeMessage' | '/solutions'
+  fullPaths: '/' | '/contactUs' | '/marqueeMessage' | '/solutions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/marqueeMessage' | '/solutions'
-  id: '__root__' | '/' | '/marqueeMessage' | '/solutions'
+  to: '/' | '/contactUs' | '/marqueeMessage' | '/solutions'
+  id: '__root__' | '/' | '/contactUs' | '/marqueeMessage' | '/solutions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactUsRoute: typeof ContactUsRoute
   MarqueeMessageRoute: typeof MarqueeMessageRoute
   SolutionsRoute: typeof SolutionsRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarqueeMessageRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contactUs': {
+      id: '/contactUs'
+      path: '/contactUs'
+      fullPath: '/contactUs'
+      preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactUsRoute: ContactUsRoute,
   MarqueeMessageRoute: MarqueeMessageRoute,
   SolutionsRoute: SolutionsRoute,
 }
