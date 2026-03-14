@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as MarqueeMessageRouteImport } from './routes/marqueeMessage'
 import { Route as ContactUsRouteImport } from './routes/contactUs'
+import { Route as AboutUsRouteImport } from './routes/aboutUs'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SolutionsRoute = SolutionsRouteImport.update({
@@ -29,6 +30,11 @@ const ContactUsRoute = ContactUsRouteImport.update({
   path: '/contactUs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/aboutUs',
+  path: '/aboutUs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aboutUs': typeof AboutUsRoute
   '/contactUs': typeof ContactUsRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aboutUs': typeof AboutUsRoute
   '/contactUs': typeof ContactUsRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
   '/solutions': typeof SolutionsRoute
@@ -50,20 +58,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aboutUs': typeof AboutUsRoute
   '/contactUs': typeof ContactUsRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contactUs' | '/marqueeMessage' | '/solutions'
+  fullPaths: '/' | '/aboutUs' | '/contactUs' | '/marqueeMessage' | '/solutions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contactUs' | '/marqueeMessage' | '/solutions'
-  id: '__root__' | '/' | '/contactUs' | '/marqueeMessage' | '/solutions'
+  to: '/' | '/aboutUs' | '/contactUs' | '/marqueeMessage' | '/solutions'
+  id:
+    | '__root__'
+    | '/'
+    | '/aboutUs'
+    | '/contactUs'
+    | '/marqueeMessage'
+    | '/solutions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutUsRoute: typeof AboutUsRoute
   ContactUsRoute: typeof ContactUsRoute
   MarqueeMessageRoute: typeof MarqueeMessageRoute
   SolutionsRoute: typeof SolutionsRoute
@@ -92,6 +108,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactUsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aboutUs': {
+      id: '/aboutUs'
+      path: '/aboutUs'
+      fullPath: '/aboutUs'
+      preLoaderRoute: typeof AboutUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +127,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutUsRoute: AboutUsRoute,
   ContactUsRoute: ContactUsRoute,
   MarqueeMessageRoute: MarqueeMessageRoute,
   SolutionsRoute: SolutionsRoute,

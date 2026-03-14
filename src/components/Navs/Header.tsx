@@ -21,9 +21,9 @@ export default function Header() {
             </Link> */}
           </li>
           <li>
-            {/* <Link to="/about" className="[&.active]:font-bold">
+            <Link to="/aboutUs" className="[&.active]:font-bold">
               About
-            </Link> */}
+            </Link>
           </li>
           <li>
             <Link to="/contactUs" className="[&.active]:font-bold">
