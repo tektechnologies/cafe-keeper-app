@@ -16,9 +16,9 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            {/* <Link to="/pricing" className="[&.active]:font-bold">
+            <Link to="/pricing" className="[&.active]:font-bold">
               Pricing
-            </Link> */}
+            </Link>
           </li>
           <li>
             <Link to="/aboutUs" className="[&.active]:font-bold">
