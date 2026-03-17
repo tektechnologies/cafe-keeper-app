@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MarqueeMessageRouteImport } from './routes/marqueeMessage'
 import { Route as ContactUsRouteImport } from './routes/contactUs'
 import { Route as AboutUsRouteImport } from './routes/aboutUs'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarqueeMessageRoute = MarqueeMessageRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/aboutUs': typeof AboutUsRoute
   '/contactUs': typeof ContactUsRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
+  '/pricing': typeof PricingRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/aboutUs': typeof AboutUsRoute
   '/contactUs': typeof ContactUsRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
+  '/pricing': typeof PricingRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRoutesById {
@@ -61,19 +69,33 @@ export interface FileRoutesById {
   '/aboutUs': typeof AboutUsRoute
   '/contactUs': typeof ContactUsRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
+  '/pricing': typeof PricingRoute
   '/solutions': typeof SolutionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/aboutUs' | '/contactUs' | '/marqueeMessage' | '/solutions'
+  fullPaths:
+    | '/'
+    | '/aboutUs'
+    | '/contactUs'
+    | '/marqueeMessage'
+    | '/pricing'
+    | '/solutions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/aboutUs' | '/contactUs' | '/marqueeMessage' | '/solutions'
+  to:
+    | '/'
+    | '/aboutUs'
+    | '/contactUs'
+    | '/marqueeMessage'
+    | '/pricing'
+    | '/solutions'
   id:
     | '__root__'
     | '/'
     | '/aboutUs'
     | '/contactUs'
     | '/marqueeMessage'
+    | '/pricing'
     | '/solutions'
   fileRoutesById: FileRoutesById
 }
@@ -82,6 +104,7 @@ export interface RootRouteChildren {
   AboutUsRoute: typeof AboutUsRoute
   ContactUsRoute: typeof ContactUsRoute
   MarqueeMessageRoute: typeof MarqueeMessageRoute
+  PricingRoute: typeof PricingRoute
   SolutionsRoute: typeof SolutionsRoute
 }
 
@@ -92,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/marqueeMessage': {
@@ -130,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutUsRoute: AboutUsRoute,
   ContactUsRoute: ContactUsRoute,
   MarqueeMessageRoute: MarqueeMessageRoute,
+  PricingRoute: PricingRoute,
   SolutionsRoute: SolutionsRoute,
 }
 export const routeTree = rootRouteImport
