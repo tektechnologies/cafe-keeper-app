@@ -95,3 +95,58 @@ Train your baristas and roasters with interactive lessons and quizzes, reinforci
 - **Inventory turnover:** Popular vs. slow-moving items
 - **Staff performance:** Efficiency, errors, training needs
 - **Customer behavior:** Preferences, seasonal patterns
+
+## Database
+
+Current recipe schema flow:
+
+```mermaid
+erDiagram
+    RECIPES ||--o{ RECIPE_INGREDIENTS : has
+    INGREDIENTS ||--o{ RECIPE_INGREDIENTS : used_in
+    RECIPES ||--o{ STEPS : includes
+    RECIPES ||--o{ RECIPE_TAGS : labeled_with
+    TAGS ||--o{ RECIPE_TAGS : groups
+
+    RECIPES {
+      uuid id PK
+      text title
+      text description
+      int servings
+      int prep_time
+      int cook_time
+      timestamptz created_at
+      timestamptz updated_at
+    }
+
+    INGREDIENTS {
+      uuid id PK
+      text name UK
+    }
+
+    RECIPE_INGREDIENTS {
+      uuid id PK
+      uuid recipe_id FK
+      uuid ingredient_id FK
+      numeric quantity
+      text unit
+      text note
+    }
+
+    STEPS {
+      uuid id PK
+      uuid recipe_id FK
+      int step_number
+      text instruction
+    }
+
+    TAGS {
+      uuid id PK
+      text name UK
+    }
+
+    RECIPE_TAGS {
+      uuid recipe_id FK
+      uuid tag_id FK
+    }
+```
