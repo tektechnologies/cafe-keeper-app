@@ -9,16 +9,42 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VendorSupplyManagementRouteImport } from './routes/vendorSupplyManagement'
+import { Route as TeamMessagingRouteImport } from './routes/teamMessaging'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as ShiftStaffManagementRouteImport } from './routes/shiftStaffManagement'
+import { Route as RecipesMenuRouteImport } from './routes/recipesMenu'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MarqueeMessageRouteImport } from './routes/marqueeMessage'
+import { Route as EquipmentMaintenanceRouteImport } from './routes/equipmentMaintenance'
 import { Route as ContactUsRouteImport } from './routes/contactUs'
+import { Route as BaristaRoasterTrainingRouteImport } from './routes/baristaRoasterTraining'
 import { Route as AboutUsRouteImport } from './routes/aboutUs'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VendorSupplyManagementRoute = VendorSupplyManagementRouteImport.update({
+  id: '/vendorSupplyManagement',
+  path: '/vendorSupplyManagement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamMessagingRoute = TeamMessagingRouteImport.update({
+  id: '/teamMessaging',
+  path: '/teamMessaging',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShiftStaffManagementRoute = ShiftStaffManagementRouteImport.update({
+  id: '/shiftStaffManagement',
+  path: '/shiftStaffManagement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecipesMenuRoute = RecipesMenuRouteImport.update({
+  id: '/recipesMenu',
+  path: '/recipesMenu',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PricingRoute = PricingRouteImport.update({
@@ -31,9 +57,19 @@ const MarqueeMessageRoute = MarqueeMessageRouteImport.update({
   path: '/marqueeMessage',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EquipmentMaintenanceRoute = EquipmentMaintenanceRouteImport.update({
+  id: '/equipmentMaintenance',
+  path: '/equipmentMaintenance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactUsRoute = ContactUsRouteImport.update({
   id: '/contactUs',
   path: '/contactUs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BaristaRoasterTrainingRoute = BaristaRoasterTrainingRouteImport.update({
+  id: '/baristaRoasterTraining',
+  path: '/baristaRoasterTraining',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutUsRoute = AboutUsRouteImport.update({
@@ -50,71 +86,141 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aboutUs': typeof AboutUsRoute
+  '/baristaRoasterTraining': typeof BaristaRoasterTrainingRoute
   '/contactUs': typeof ContactUsRoute
+  '/equipmentMaintenance': typeof EquipmentMaintenanceRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
   '/pricing': typeof PricingRoute
+  '/recipesMenu': typeof RecipesMenuRoute
+  '/shiftStaffManagement': typeof ShiftStaffManagementRoute
   '/solutions': typeof SolutionsRoute
+  '/teamMessaging': typeof TeamMessagingRoute
+  '/vendorSupplyManagement': typeof VendorSupplyManagementRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aboutUs': typeof AboutUsRoute
+  '/baristaRoasterTraining': typeof BaristaRoasterTrainingRoute
   '/contactUs': typeof ContactUsRoute
+  '/equipmentMaintenance': typeof EquipmentMaintenanceRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
   '/pricing': typeof PricingRoute
+  '/recipesMenu': typeof RecipesMenuRoute
+  '/shiftStaffManagement': typeof ShiftStaffManagementRoute
   '/solutions': typeof SolutionsRoute
+  '/teamMessaging': typeof TeamMessagingRoute
+  '/vendorSupplyManagement': typeof VendorSupplyManagementRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/aboutUs': typeof AboutUsRoute
+  '/baristaRoasterTraining': typeof BaristaRoasterTrainingRoute
   '/contactUs': typeof ContactUsRoute
+  '/equipmentMaintenance': typeof EquipmentMaintenanceRoute
   '/marqueeMessage': typeof MarqueeMessageRoute
   '/pricing': typeof PricingRoute
+  '/recipesMenu': typeof RecipesMenuRoute
+  '/shiftStaffManagement': typeof ShiftStaffManagementRoute
   '/solutions': typeof SolutionsRoute
+  '/teamMessaging': typeof TeamMessagingRoute
+  '/vendorSupplyManagement': typeof VendorSupplyManagementRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/aboutUs'
+    | '/baristaRoasterTraining'
     | '/contactUs'
+    | '/equipmentMaintenance'
     | '/marqueeMessage'
     | '/pricing'
+    | '/recipesMenu'
+    | '/shiftStaffManagement'
     | '/solutions'
+    | '/teamMessaging'
+    | '/vendorSupplyManagement'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/aboutUs'
+    | '/baristaRoasterTraining'
     | '/contactUs'
+    | '/equipmentMaintenance'
     | '/marqueeMessage'
     | '/pricing'
+    | '/recipesMenu'
+    | '/shiftStaffManagement'
     | '/solutions'
+    | '/teamMessaging'
+    | '/vendorSupplyManagement'
   id:
     | '__root__'
     | '/'
     | '/aboutUs'
+    | '/baristaRoasterTraining'
     | '/contactUs'
+    | '/equipmentMaintenance'
     | '/marqueeMessage'
     | '/pricing'
+    | '/recipesMenu'
+    | '/shiftStaffManagement'
     | '/solutions'
+    | '/teamMessaging'
+    | '/vendorSupplyManagement'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutUsRoute: typeof AboutUsRoute
+  BaristaRoasterTrainingRoute: typeof BaristaRoasterTrainingRoute
   ContactUsRoute: typeof ContactUsRoute
+  EquipmentMaintenanceRoute: typeof EquipmentMaintenanceRoute
   MarqueeMessageRoute: typeof MarqueeMessageRoute
   PricingRoute: typeof PricingRoute
+  RecipesMenuRoute: typeof RecipesMenuRoute
+  ShiftStaffManagementRoute: typeof ShiftStaffManagementRoute
   SolutionsRoute: typeof SolutionsRoute
+  TeamMessagingRoute: typeof TeamMessagingRoute
+  VendorSupplyManagementRoute: typeof VendorSupplyManagementRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vendorSupplyManagement': {
+      id: '/vendorSupplyManagement'
+      path: '/vendorSupplyManagement'
+      fullPath: '/vendorSupplyManagement'
+      preLoaderRoute: typeof VendorSupplyManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teamMessaging': {
+      id: '/teamMessaging'
+      path: '/teamMessaging'
+      fullPath: '/teamMessaging'
+      preLoaderRoute: typeof TeamMessagingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions': {
       id: '/solutions'
       path: '/solutions'
       fullPath: '/solutions'
       preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shiftStaffManagement': {
+      id: '/shiftStaffManagement'
+      path: '/shiftStaffManagement'
+      fullPath: '/shiftStaffManagement'
+      preLoaderRoute: typeof ShiftStaffManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recipesMenu': {
+      id: '/recipesMenu'
+      path: '/recipesMenu'
+      fullPath: '/recipesMenu'
+      preLoaderRoute: typeof RecipesMenuRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -131,11 +237,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarqueeMessageRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/equipmentMaintenance': {
+      id: '/equipmentMaintenance'
+      path: '/equipmentMaintenance'
+      fullPath: '/equipmentMaintenance'
+      preLoaderRoute: typeof EquipmentMaintenanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contactUs': {
       id: '/contactUs'
       path: '/contactUs'
       fullPath: '/contactUs'
       preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/baristaRoasterTraining': {
+      id: '/baristaRoasterTraining'
+      path: '/baristaRoasterTraining'
+      fullPath: '/baristaRoasterTraining'
+      preLoaderRoute: typeof BaristaRoasterTrainingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/aboutUs': {
@@ -158,10 +278,16 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutUsRoute: AboutUsRoute,
+  BaristaRoasterTrainingRoute: BaristaRoasterTrainingRoute,
   ContactUsRoute: ContactUsRoute,
+  EquipmentMaintenanceRoute: EquipmentMaintenanceRoute,
   MarqueeMessageRoute: MarqueeMessageRoute,
   PricingRoute: PricingRoute,
+  RecipesMenuRoute: RecipesMenuRoute,
+  ShiftStaffManagementRoute: ShiftStaffManagementRoute,
   SolutionsRoute: SolutionsRoute,
+  TeamMessagingRoute: TeamMessagingRoute,
+  VendorSupplyManagementRoute: VendorSupplyManagementRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
