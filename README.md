@@ -98,55 +98,20 @@ Train your baristas and roasters with interactive lessons and quizzes, reinforci
 
 ## Database
 
-Current recipe schema flow:
+Recipe table relationship flowchart:
 
 ```mermaid
-erDiagram
-    RECIPES ||--o{ RECIPE_INGREDIENTS : has
-    INGREDIENTS ||--o{ RECIPE_INGREDIENTS : used_in
-    RECIPES ||--o{ STEPS : includes
-    RECIPES ||--o{ RECIPE_TAGS : labeled_with
-    TAGS ||--o{ RECIPE_TAGS : groups
+flowchart LR
+    RECIPES["recipes\n- id (PK)\n- title\n- description\n- servings\n- prep_time\n- cook_time\n- created_at\n- updated_at"]
+    INGREDIENTS["ingredients\n- id (PK)\n- name (UNIQUE)"]
+    RECIPE_INGREDIENTS["recipe_ingredients\n- id (PK)\n- recipe_id (FK)\n- ingredient_id (FK)\n- quantity\n- unit\n- note"]
+    STEPS["steps\n- id (PK)\n- recipe_id (FK)\n- step_number\n- instruction"]
+    TAGS["tags\n- id (PK)\n- name (UNIQUE)"]
+    RECIPE_TAGS["recipe_tags\n- recipe_id (FK)\n- tag_id (FK)\n- PK(recipe_id, tag_id)"]
 
-    RECIPES {
-      uuid id PK
-      text title
-      text description
-      int servings
-      int prep_time
-      int cook_time
-      timestamptz created_at
-      timestamptz updated_at
-    }
-
-    INGREDIENTS {
-      uuid id PK
-      text name UK
-    }
-
-    RECIPE_INGREDIENTS {
-      uuid id PK
-      uuid recipe_id FK
-      uuid ingredient_id FK
-      numeric quantity
-      text unit
-      text note
-    }
-
-    STEPS {
-      uuid id PK
-      uuid recipe_id FK
-      int step_number
-      text instruction
-    }
-
-    TAGS {
-      uuid id PK
-      text name UK
-    }
-
-    RECIPE_TAGS {
-      uuid recipe_id FK
-      uuid tag_id FK
-    }
+    RECIPES -->|"1 to many"| RECIPE_INGREDIENTS
+    INGREDIENTS -->|"1 to many"| RECIPE_INGREDIENTS
+    RECIPES -->|"1 to many"| STEPS
+    RECIPES -->|"1 to many"| RECIPE_TAGS
+    TAGS -->|"1 to many"| RECIPE_TAGS
 ```
