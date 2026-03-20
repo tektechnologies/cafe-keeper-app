@@ -98,20 +98,6 @@ Train your baristas and roasters with interactive lessons and quizzes, reinforci
 
 ## Database
 
-Recipe table relationship flowchart:
+Recipe schema diagram:
 
-```mermaid
-flowchart LR
-    RECIPES["recipes\n- id (PK)\n- title\n- description\n- servings\n- prep_time\n- cook_time\n- created_at\n- updated_at"]
-    INGREDIENTS["ingredients\n- id (PK)\n- name (UNIQUE)"]
-    RECIPE_INGREDIENTS["recipe_ingredients\n- id (PK)\n- recipe_id (FK)\n- ingredient_id (FK)\n- quantity\n- unit\n- note"]
-    STEPS["steps\n- id (PK)\n- recipe_id (FK)\n- step_number\n- instruction"]
-    TAGS["tags\n- id (PK)\n- name (UNIQUE)"]
-    RECIPE_TAGS["recipe_tags\n- recipe_id (FK)\n- tag_id (FK)\n- PK(recipe_id, tag_id)"]
-
-    RECIPES -->|"1 to many"| RECIPE_INGREDIENTS
-    INGREDIENTS -->|"1 to many"| RECIPE_INGREDIENTS
-    RECIPES -->|"1 to many"| STEPS
-    RECIPES -->|"1 to many"| RECIPE_TAGS
-    TAGS -->|"1 to many"| RECIPE_TAGS
-```
+![Recipe ERD](src/assets/images/erd-1.png)
