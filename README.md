@@ -95,3 +95,9 @@ Train your baristas and roasters with interactive lessons and quizzes, reinforci
 - **Inventory turnover:** Popular vs. slow-moving items
 - **Staff performance:** Efficiency, errors, training needs
 - **Customer behavior:** Preferences, seasonal patterns
+
+## Database
+
+Recipe schema diagram:
+
+![Recipe ERD](src/assets/images/erd-1.png)
