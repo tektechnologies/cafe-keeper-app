@@ -113,10 +113,6 @@ export function normalizeAddRecipeForm(
   }
 }
 
-const inputClass =
-  'mt-1 block w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100'
-
-const labelClass = 'block text-sm font-medium text-neutral-800 dark:text-neutral-200'
 
 type AddRecipesProps = {
   /** Called after client-side normalization; wire to API when ready */
@@ -138,6 +134,7 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
   const form = useForm({
     defaultValues: defaultFormValues,
     onSubmit: async ({ value }) => {
+      console.log('Save recipe clicked', value)
       const payload = normalizeAddRecipeForm(value)
       if (onSubmitRecipe) {
         await onSubmitRecipe(payload)
@@ -148,23 +145,23 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
   })
 
   return (
-    <div className="max-w-2xl">
-      <h3 className="mb-4 text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+    <div className="">
+      <h3 className="">
         Add recipe
       </h3>
       <form
-        className="flex flex-col gap-6"
+        className=""
         onSubmit={(e) => {
           e.preventDefault()
           e.stopPropagation()
           void form.handleSubmit()
         }}
       >
-        <div className="rounded-lg border border-neutral-200 bg-neutral-50/80 p-4 dark:border-neutral-700 dark:bg-neutral-900/40">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wide text-neutral-500">
+        <div className="">
+          <p className="">
             recipes
           </p>
-          <div className="flex flex-col gap-4">
+          <div className="">
             <form.Field
               name="title"
               validators={{
@@ -173,17 +170,17 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
               }}
             >
               {(field) => (
-                <label className={labelClass}>
+                <label className="">
                   Title
                   <input
-                    className={inputClass}
+                    className=""
                     name={field.name}
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     onChange={(e) => field.handleChange(e.target.value)}
                   />
                   {field.state.meta.errors.length > 0 ? (
-                    <span className="mt-1 block text-sm text-red-600">
+                    <span className="">
                       {String(field.state.meta.errors[0])}
                     </span>
                   ) : null}
@@ -193,10 +190,10 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
 
             <form.Field name="description">
               {(field) => (
-                <label className={labelClass}>
+                <label className="">
                   Description
                   <textarea
-                    className={`${inputClass} min-h-[88px] resize-y`}
+                    className=""
                     name={field.name}
                     value={field.state.value}
                     onBlur={field.handleBlur}
@@ -206,13 +203,13 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
               )}
             </form.Field>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="">
               <form.Field name="servings">
                 {(field) => (
-                  <label className={labelClass}>
+                  <label className="">
                     Servings
                     <input
-                      className={inputClass}
+                      className=""
                       inputMode="numeric"
                       name={field.name}
                       placeholder="e.g. 4"
@@ -225,10 +222,10 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
               </form.Field>
               <form.Field name="prep_time">
                 {(field) => (
-                  <label className={labelClass}>
+                  <label className="">
                     Prep (min)
                     <input
-                      className={inputClass}
+                      className=""
                       inputMode="numeric"
                       name={field.name}
                       placeholder="minutes"
@@ -241,10 +238,10 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
               </form.Field>
               <form.Field name="cook_time">
                 {(field) => (
-                  <label className={labelClass}>
+                  <label className="">
                     Cook (min)
                     <input
-                      className={inputClass}
+                      className=""
                       inputMode="numeric"
                       name={field.name}
                       placeholder="minutes"
@@ -259,25 +256,25 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
           </div>
         </div>
 
-        <div className="rounded-lg border border-neutral-200 bg-neutral-50/80 p-4 dark:border-neutral-700 dark:bg-neutral-900/40">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wide text-neutral-500">
+        <div className="">
+          <p className="">
             ingredients → recipe_ingredients
           </p>
           <form.Field name="ingredients" mode="array">
             {(field) => (
-              <div className="flex flex-col gap-3">
+              <div className="">
                 {field.state.value.map((_, i) => (
                   <div
                     key={i}
-                    className="flex flex-col gap-3 rounded-md border border-neutral-200 bg-white p-3 dark:border-neutral-600 dark:bg-neutral-950"
+                    className=""
                   >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                    <div className="">
+                      <span className="">
                         Ingredient {i + 1}
                       </span>
                       <button
                         type="button"
-                        className="text-sm text-red-600 hover:underline"
+                        className=""
                         onClick={() => field.removeValue(i)}
                       >
                         Remove
@@ -285,10 +282,10 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
                     </div>
                     <form.Field name={`ingredients[${i}].ingredientName`}>
                       {(sub) => (
-                        <label className={labelClass}>
+                        <label className="">
                           Name (ingredients.name)
                           <input
-                            className={inputClass}
+                            className=""
                             value={sub.state.value}
                             onBlur={sub.handleBlur}
                             onChange={(e) => sub.handleChange(e.target.value)}
@@ -296,13 +293,13 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
                         </label>
                       )}
                     </form.Field>
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                    <div className="">
                       <form.Field name={`ingredients[${i}].quantity`}>
                         {(sub) => (
-                          <label className={labelClass}>
+                          <label className="">
                             Quantity
                             <input
-                              className={inputClass}
+                              className=""
                               inputMode="decimal"
                               value={sub.state.value}
                               onBlur={sub.handleBlur}
@@ -315,10 +312,10 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
                       </form.Field>
                       <form.Field name={`ingredients[${i}].unit`}>
                         {(sub) => (
-                          <label className={labelClass}>
+                          <label className="">
                             Unit
                             <input
-                              className={inputClass}
+                              className=""
                               placeholder="g, ml, tbsp…"
                               value={sub.state.value}
                               onBlur={sub.handleBlur}
@@ -331,10 +328,10 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
                       </form.Field>
                       <form.Field name={`ingredients[${i}].note`}>
                         {(sub) => (
-                          <label className={labelClass}>
+                          <label className="">
                             Note
                             <input
-                              className={inputClass}
+                              className=""
                               placeholder="chopped, room temp…"
                               value={sub.state.value}
                               onBlur={sub.handleBlur}
@@ -350,7 +347,7 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
                 ))}
                 <button
                   type="button"
-                  className="self-start rounded-md bg-neutral-200 px-3 py-2 text-sm font-medium text-neutral-900 hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-600"
+                  className=""
                   onClick={() =>
                     field.pushValue({
                       ingredientName: '',
@@ -367,25 +364,25 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
           </form.Field>
         </div>
 
-        <div className="rounded-lg border border-neutral-200 bg-neutral-50/80 p-4 dark:border-neutral-700 dark:bg-neutral-900/40">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wide text-neutral-500">
+        <div className="">
+          <p className="">
             steps
           </p>
           <form.Field name="steps" mode="array">
             {(field) => (
-              <div className="flex flex-col gap-3">
+              <div className="">
                 {field.state.value.map((_, i) => (
                   <div
                     key={i}
-                    className="flex flex-col gap-2 rounded-md border border-neutral-200 bg-white p-3 dark:border-neutral-600 dark:bg-neutral-950"
+                    className=""
                   >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                    <div className="">
+                      <span className="">
                         Step {i + 1}
                       </span>
                       <button
                         type="button"
-                        className="text-sm text-red-600 hover:underline"
+                        className=""
                         onClick={() => field.removeValue(i)}
                       >
                         Remove
@@ -393,10 +390,10 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
                     </div>
                     <form.Field name={`steps[${i}].instruction`}>
                       {(sub) => (
-                        <label className={labelClass}>
+                        <label className="">
                           Instruction
                           <textarea
-                            className={`${inputClass} min-h-[72px] resize-y`}
+                            className=""
                             value={sub.state.value}
                             onBlur={sub.handleBlur}
                             onChange={(e) =>
@@ -410,7 +407,7 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
                 ))}
                 <button
                   type="button"
-                  className="self-start rounded-md bg-neutral-200 px-3 py-2 text-sm font-medium text-neutral-900 hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-600"
+                  className=""
                   onClick={() => field.pushValue({ instruction: '' })}
                 >
                   Add step
@@ -420,24 +417,24 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
           </form.Field>
         </div>
 
-        <div className="rounded-lg border border-neutral-200 bg-neutral-50/80 p-4 dark:border-neutral-700 dark:bg-neutral-900/40">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wide text-neutral-500">
+        <div className="">
+          <p className="">
             tags → recipe_tags
           </p>
           <form.Field name="tags" mode="array">
             {(field) => (
-              <div className="flex flex-col gap-3">
+              <div className="">
                 {field.state.value.map((_, i) => (
                   <div
                     key={i}
-                    className="flex w-full min-w-0 items-end gap-2"
+                    className=""
                   >
                     <form.Field name={`tags[${i}].name`}>
                       {(sub) => (
-                        <label className={`${labelClass} w-full min-w-0`}>
+                        <label className="">
                           Tag
                           <input
-                            className={inputClass}
+                            className=""
                             placeholder="e.g. vegan, seasonal"
                             value={sub.state.value}
                             onBlur={sub.handleBlur}
@@ -450,7 +447,7 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
                     </form.Field>
                     <button
                       type="button"
-                      className="mb-0.5 shrink-0 rounded-md border border-neutral-300 px-3 py-2 text-sm text-red-600 hover:bg-neutral-100 dark:border-neutral-600 dark:hover:bg-neutral-800"
+                      className=""
                       onClick={() => field.removeValue(i)}
                     >
                       Remove
@@ -459,7 +456,7 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
                 ))}
                 <button
                   type="button"
-                  className="self-start rounded-md bg-neutral-200 px-3 py-2 text-sm font-medium text-neutral-900 hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-600"
+                  className=""
                   onClick={() => field.pushValue({ name: '' })}
                 >
                   Add tag
@@ -476,7 +473,7 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
             <button
               type="submit"
               disabled={!canSubmit || isSubmitting}
-              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className=""
             >
               {isSubmitting ? 'Saving…' : 'Save recipe'}
             </button>
