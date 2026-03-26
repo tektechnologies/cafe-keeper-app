@@ -1,4 +1,5 @@
 import AddRecipes from '@/components/CafeKeeperApp/Recipes/AddRecipes'
+import { saveRecipe } from '@/components/CafeKeeperApp/Recipes/recipeActions'
 
 export default function RecipesMenu() {
   return (
@@ -9,7 +10,8 @@ export default function RecipesMenu() {
           style={{ maxWidth: 720, margin: '0 auto' }}
         >
        
-          <AddRecipes />
+          {/* <AddRecipes /> */}
+          <AddRecipes onSubmitRecipe={(payload) => saveRecipe(payload)} />
         </div>
       </div>
     </section>
