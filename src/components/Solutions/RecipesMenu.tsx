@@ -11,7 +11,7 @@ export default function RecipesMenu() {
         >
        
           {/* <AddRecipes /> */}
-          <AddRecipes onSubmitRecipe={(payload) => saveRecipe({ data: payload })} />
+          <AddRecipes onSubmitRecipe={(payload) => saveRecipe(payload)} />
         </div>
       </div>
     </section>
