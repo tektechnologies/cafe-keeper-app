@@ -116,7 +116,7 @@ export function normalizeAddRecipeForm(
 
 type AddRecipesProps = {
   /** Called after client-side normalization; wire to API when ready */
-  onSubmitRecipe?: (payload: NormalizedRecipePayload) => void | Promise<void>
+  onSubmitRecipe?: (payload: NormalizedRecipePayload) => void | Promise<unknown>
 }
 
 const defaultFormValues: AddRecipeFormValues = {
