@@ -145,7 +145,7 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
   })
 
   return (
-    <div className="">
+    <div className="form-container">
       <h3 className="">
         Add recipe
       </h3>
@@ -158,9 +158,6 @@ export default function AddRecipes({ onSubmitRecipe }: AddRecipesProps) {
         }}
       >
         <div className="">
-          <p className="">
-            recipes
-          </p>
           <div className="">
             <form.Field
               name="title"
